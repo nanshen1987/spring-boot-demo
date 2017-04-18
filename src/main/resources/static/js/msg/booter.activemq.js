@@ -12,13 +12,9 @@ $.extend($(booter.activemq),
         {
             alert("sendMsg")
         },
-        revMsg:function()
+        rcvMsg:function()
         {
             alert("revMsg")
         }
     }
     )
-var inti=function()
-{
-    $("#btnSend").on("click", $(booter.activemq).sendMsg)
-}();
