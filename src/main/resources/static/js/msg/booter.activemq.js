@@ -5,16 +5,24 @@
 
 var booter={};
  booter.activemq ={};
-var _this=$(booter.activemq);
-$.extend($(booter.activemq),
+var _this=booter.activemq;
+$.extend( booter.activemq,
     {
-        sendMsg:function()
+        sendMsgQueue:function()
         {
-            alert("sendMsg")
+            $.getJSON("activemq/sendqueue",
+            function(json){
+                console.log(json);
+            }
+            )
         },
-        rcvMsg:function()
+        sendMsgTopic:function()
         {
-            alert("revMsg")
+            $.getJSON("activemq/sendtopic",
+                function(json){
+                    console.log(json);
+                }
+            )
         }
     }
     )

@@ -9,6 +9,8 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Queue;
 import javax.jms.Session;
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * Created by sn on 2017-4-16.
@@ -23,16 +25,23 @@ public class ActiveMqUtil {
         this.jmsTemplate=jmsTemplate;
     }
 
-    public void sendMsg()
+    public void sendMsgQueue()
     {
-        for (int i=0;i<100;i++)
-        {
             jmsTemplate.send("testAmq",new MessageCreator() {
                 @Override
                 public Message createMessage(Session session) throws JMSException {
-                    return session.createTextMessage("hello");
+                    return session.createTextMessage("send:"+ UUID.randomUUID());
                 }
             });
-        }
+    }
+
+    public void sendMsgTopic()
+    {
+        jmsTemplate.send("testAmqTopic",new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                return session.createTextMessage("send:"+ UUID.randomUUID());
+            }
+        });
     }
 }

@@ -6,7 +6,7 @@
     <title>消息队列</title>
 </head>
 <body>
-<button id="btnSend" onclick="javascript:booter.activemq.sendMsg">发送消息</button>
-<button id="btnRcv" onclick="booter.activemq.rcvMsg">接收消息</button>
+<button id="btnSendQueue" onclick="booter.activemq.sendMsgQueue()">发送队列消息</button>
+<button id="btnSendTopic" onclick="booter.activemq.sendMsgTopic()">发布消息</button>
 </body>
 </html>
